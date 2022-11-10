@@ -1,4 +1,4 @@
-# Terraform Settings Block
+# Terraform Settings Block edit version 2
 terraform {
   required_providers {
     aws = {
