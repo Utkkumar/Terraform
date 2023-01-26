@@ -61,12 +61,12 @@ resource "oci_core_subnet" "my-test_subnet" {
     route_table_id = "${oci_core_vcn.my-test_vcn.default_route_table_id}"
 }    
 
-resource "oci_core_instance" "example_instance" {
+resource "oci_core_instance" "Demo_instance" {
   compartment_id = oci_identity_compartment.my-test_compartment.id
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
-  display_name = "example_instance"
-  image = "Oracle-Linux-8.6-2022.12.15-0"
+  display_name = "Demo_instance"
+  image_ocid = "ocid1.image.oc1.ap-mumbai-1.aaaaaaaaoopx6zwrtr3tze7rzq6gawwhwnikffhdmhnweqqeaouq5xfdn3qa"
 }
 
 #resource "oci_core_instance" "test_instance" {
