@@ -7,7 +7,7 @@ variable "user_ocid" {
 }
 
 variable "fingerprint" {
-  default = "SHA256:XvpzPL5hCSySX1Wcg4bML7OkGh7jCgaBYnACXXYpyUk"
+  default = "15:2c:d4:8e:b2:a1:b2:3e:2f:da:de:aa:1e:62:49:0d"
 }
 
 variable "compartment_id" {
