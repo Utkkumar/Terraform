@@ -61,7 +61,7 @@ resource "oci_core_subnet" "my-test_subnet" {
 }    
 
 resource "oci_core_instance" "example_instance" {
-  compartment_id = oci_identity_compartment.example_compartment.id
+  compartment_id = oci_identity_compartment.my-test_compartment.id
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
   subnet_id = oci_core_subnet.my-test_subnet.id
