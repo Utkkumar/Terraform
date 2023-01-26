@@ -10,6 +10,9 @@ variable "fingerprint" {
   default = "SHA256:jL3mUNfNAk3XjBuacmAe1ZuHVFuN7ZR4dyc5u24PsIs"
 }
 
+variable "compartment_id" {
+  default = "ocid1.compartment.oc1..aaaaaaaatmzxsdcsqh65mxf6rqk6oiey2l67x5sdmt5s25auhtog6kgcva7a"
+}
 
 variable "region" {
   default = "ap-mumbai-1"
