@@ -123,7 +123,7 @@ resource "oci_core_instance" "Demo_instance" {
 		source_type = "image"
 	}
 }
-}
+
 
 
 #resource "oci_core_instance" "test_instance" {
