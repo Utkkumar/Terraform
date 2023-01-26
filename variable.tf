@@ -19,7 +19,7 @@ variable "region" {
 }
 
 variable "image_ocid" {
-  default="ocid1.image.oc1.ap-mumbai-1.aaaaaaaaoopx6zwrtr3tze7rzq6gawwhwnikffhdmhnweqqeaouq5xfdn3qa"
+  default="ocid1.image.oc1.ap-mumbai-1.aaaaaaaafdhnwn64wnw3c2v4xabp6jgwtvvvdz6ypqpeyz36kqxmr3fdcuta"
 }
 
 variable "path_local_public_key" {
