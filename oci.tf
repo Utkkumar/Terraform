@@ -39,7 +39,7 @@ resource "oci_core_drg" "my-test_drg" {
 resource "oci_core_vcn" "my-test_vcn" {
     #Required
     compartment_id = oci_identity_compartment.my-test_compartment.id
-    cidr_blocks = "10.0.0.0/16"
+    cidr_blocks = "10.10.0.0/16"
     display_name = "Demo_vcn"
 }
 
@@ -53,7 +53,7 @@ resource "oci_core_drg_attachment" "drg_to_vcn_attachment" {
 ##Step-6 Create Subnet for VCN
 resource "oci_core_subnet" "my-test_subnet" {
     #Required
-    cidr_block = "10.0.0.0/24"
+    cidr_block = "10.10.0.0/24"
     compartment_id = oci_identity_compartment.my-test_compartment.id
     vcn_id = oci_core_vcn.my-test_vcn.id
 }
