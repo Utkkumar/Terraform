@@ -65,21 +65,19 @@ resource "oci_core_instance" "Demo_instance" {
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
   display_name = "Demo_instance"
+  instance_state = "RUNNING"
+  ssh_public_keys = "/home/opc/.ssh/id_rsa.pub"
   source_details {
         #Required
         source_id = var.image_ocid
         source_type = "image"
   }
   
-  metadeta = {
-    ssh_authorized_keys = file(var.ssh_public_key)
-  }
   create_vnic_details {
     subnet_id = oci_core_subnet.my-test_subnet.id
     display_name = "Primaryvnic"
     hostname_label = "Demo"
-    instace_state = "RUNNING"
-    ssh_public_keys = "/home/opc/.ssh/id_rsa.pub"
+    
   }
 }
 
