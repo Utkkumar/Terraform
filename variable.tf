@@ -22,10 +22,11 @@ variable "image_ocid" {
   default="ocid1.image.oc1.ap-mumbai-1.aaaaaaaaoopx6zwrtr3tze7rzq6gawwhwnikffhdmhnweqqeaouq5xfdn3qa"
 }
 
-variable "ssh_public_key" {
-  default= "/home/opc/.ssh/id_rsa.pub"
-  
+variable "path_local_public_key" {
+  default = "/home/opc/.ssh/id_rsa.pub"
+  sensitive = true  
 }
+
 variable "private_key_path" {
   default = "/home/opc/.oci/keygen.pem"
 }
