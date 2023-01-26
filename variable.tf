@@ -7,7 +7,7 @@ variable "user_ocid" {
 }
 
 variable "fingerprint" {
-  default = "15:2c:d4:8e:b2:a1:b2:3e:2f:da:de:aa:1e:62:49:0d"
+  default = "fa:6e:45:d5:7c:d8:80:b8:c3:d3:12:bc:c7:f2:e3:c4"
 }
 
 variable "compartment_id" {
@@ -23,5 +23,5 @@ variable "image_ocid" {
 }
 
 variable "private_key_path" {
-  default = "/home/opc/.ssh/id_rsa.pem"
+  default = "/home/opc/.oci/keygen.pem"
 }
