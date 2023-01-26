@@ -62,27 +62,67 @@ resource "oci_core_subnet" "my-test_subnet" {
 }    
 
 resource "oci_core_instance" "Demo_instance" {
-  compartment_id = oci_identity_compartment.my-test_compartment.id
-  availability_domain = "ap-mumbai-1"
-  shape = "VM.Standard.E2.1.Micro"
-  display_name = "Demo_instance"
-  boot_Volume_Type = "PARAVIRTUALIZED"
-  metadata = {
-    ssh_authorized_keys = file(var.path_local_public_key)
-  }
-    
-    source_details {
-        #Required
-      source_id = var.image_ocid
-      source_type = "image"
-  }
-  
-  create_vnic_details {
-    subnet_id = oci_core_subnet.my-test_subnet.id
-    display_name = "Primaryvnic"
-    hostname_label = "Demo"
-    
-  }
+	agent_config {
+		is_management_disabled = "false"
+		is_monitoring_disabled = "false"
+		plugins_config {
+			desired_state = "DISABLED"
+			name = "Vulnerability Scanning"
+		}
+		plugins_config {
+			desired_state = "DISABLED"
+			name = "Oracle Java Management Service"
+		}
+		plugins_config {
+			desired_state = "ENABLED"
+			name = "OS Management Service Agent"
+		}
+		plugins_config {
+			desired_state = "DISABLED"
+			name = "Management Agent"
+		}
+		plugins_config {
+			desired_state = "ENABLED"
+			name = "Custom Logs Monitoring"
+		}
+		plugins_config {
+			desired_state = "ENABLED"
+			name = "Compute Instance Run Command"
+		}
+		plugins_config {
+			desired_state = "ENABLED"
+			name = "Compute Instance Monitoring"
+		}
+		plugins_config {
+			desired_state = "DISABLED"
+			name = "Block Volume Management"
+		}
+		plugins_config {
+			desired_state = "DISABLED"
+			name = "Bastion"
+		}
+	}
+	availability_config {
+		recovery_action = "RESTORE_INSTANCE"
+	}
+	availability_domain = "ejUh:AP-MUMBAI-1-AD-1"
+	compartment_id = oci_identity_compartment.my-test_compartment.id
+	create_vnic_details {
+		assign_private_dns_record = "false"
+		assign_public_ip = "true"
+		subnet_id = oci_core_subnet.my-test_subnet.id
+	}
+	display_name = "Demo_instance"
+	instance_options {
+		are_legacy_imds_endpoints_disabled = "false"
+	}
+	is_pv_encryption_in_transit_enabled = "true"
+	shape = "VM.Standard.E2.1.Micro"
+	source_details {
+		source_id = var.image_ocid
+		source_type = "image"
+	}
+}
 }
 
 
