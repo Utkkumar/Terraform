@@ -78,7 +78,8 @@ resource "oci_core_instance" "Demo_instance" {
     subnet_id = oci_core_subnet.my-test_subnet.id
     display_name = "Primaryvnic"
     hostname_label = "Demo"
-    assign_public_ip = True
+    instace_state = "RUNNING"
+    ssh_public_keys = "/home/opc/.ssh/id_rsa.pub"
   }
 }
 
