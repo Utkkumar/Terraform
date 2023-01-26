@@ -66,7 +66,7 @@ resource "oci_core_instance" "example_instance" {
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
   display_name = "example_instance"
-  image = "Oracle-Linux-7.9-20201217-20221217-20221217-0"
+  source_Details = "Oracle-Linux-7.9-20201217-20221217-20221217-0"
 }
 
 #resource "oci_core_instance" "test_instance" {
