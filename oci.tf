@@ -65,7 +65,6 @@ resource "oci_core_instance" "example_instance" {
   compartment_id = oci_identity_compartment.my-test_compartment.id
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
-  subnet_id = oci_core_subnet.my-test_subnet.id
   display_name = "example_instance"
   image = "Oracle-Linux-7.9-20201217-20221217-20221217-0"
 }
