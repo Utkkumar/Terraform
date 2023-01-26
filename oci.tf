@@ -69,19 +69,22 @@ resource "oci_core_instance" "Demo_instance" {
         #Required
         source_id = var.image_ocid
         source_type = "image"
+  metadeta = {
+    ssh_authorized_keys = file(var.ssh_public_key)
+  }
+  create_vnic_details {
+    subnet_id = oci_core_subnet.my-test_subnet.id
+    display_name = "Primaryvnic"
+    hostname_label = "Demo"
+    assign_public_ip = True
   }
 }
 
-metadeta = {
-  ssh_authorized_keys = file(var.ssh_public_key)
+
 }
 
-create_vnic_details {
-  subnet_id = oci_core_subnet.my-test_subnet.id
-  display_name = "Primaryvnic"
-  hostname_label = "Demo"
-  assign_public_ip = True
-}
+
+
 
 #resource "oci_core_instance" "test_instance" {
     #Required
