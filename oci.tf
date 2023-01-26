@@ -66,7 +66,11 @@ resource "oci_core_instance" "Demo_instance" {
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
   display_name = "Demo_instance"
-  image_ocid = "ocid1.image.oc1.ap-mumbai-1.aaaaaaaaoopx6zwrtr3tze7rzq6gawwhwnikffhdmhnweqqeaouq5xfdn3qa"
+  source_details {
+        #Required
+        source_id = var.image_ocid
+        source_type = "image"
+  }
 }
 
 #resource "oci_core_instance" "test_instance" {
