@@ -7,7 +7,7 @@ variable "user_ocid" {
 }
 
 variable "fingerprint" {
-  default = "SHA256:jL3mUNfNAk3XjBuacmAe1ZuHVFuN7ZR4dyc5u24PsIs"
+  default = "SHA256:XvpzPL5hCSySX1Wcg4bML7OkGh7jCgaBYnACXXYpyUk"
 }
 
 variable "compartment_id" {
@@ -16,4 +16,8 @@ variable "compartment_id" {
 
 variable "region" {
   default = "ap-mumbai-1"
+}
+
+variable "private_key_path" {
+  default = "/home/opc/.ssh/id_rsa.pem"
 }
