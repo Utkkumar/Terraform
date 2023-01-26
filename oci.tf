@@ -66,7 +66,7 @@ resource "oci_core_instance" "Demo_instance" {
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
   display_name = "Demo_instance"
-  bootVolumeType = "PARAVIRTUALIZED"
+  boot_Volume_Type = "PARAVIRTUALIZED"
   metadata = {
     ssh_authorized_keys = file(var.path_local_public_key)
   }
