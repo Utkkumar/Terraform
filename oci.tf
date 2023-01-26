@@ -16,7 +16,6 @@ provider "oci"  {
 
 #Step-1 Create Root Compartment
 resource "oci_identity_compartment" "my-root_compartment" {
-    compartment_id = var.compartment_id
     description = "This is a Root Compartment"
     name = "My_Root_compartment"
 }
@@ -24,7 +23,7 @@ resource "oci_identity_compartment" "my-root_compartment" {
 #Step-2 Create Child Compartment
 resource "oci_identity_compartment" "my-test_compartment" {
     #Required
-    compartment_id = oci_identity_compartment.my-root_compartment.id
+    parent_compartment_id = oci_identity_compartment.my-root_compartment.id
     description = "This compartment is for testing"
     name = "My_compartment"
 }
