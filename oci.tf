@@ -69,6 +69,8 @@ resource "oci_core_instance" "Demo_instance" {
         #Required
         source_id = var.image_ocid
         source_type = "image"
+  }
+  
   metadeta = {
     ssh_authorized_keys = file(var.ssh_public_key)
   }
