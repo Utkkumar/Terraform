@@ -83,11 +83,6 @@ resource "oci_core_instance" "Demo_instance" {
 }
 
 
-}
-
-
-
-
 #resource "oci_core_instance" "test_instance" {
     #Required
     #availability_domain = var.availability_domain
