@@ -12,7 +12,7 @@ provider "oci"  {
   fingerprint      = var.fingerprint
   region           = var.region
   private_key_path = var.private_key_path
-  ssh_authorized_keys = var.ssh_public_keys
+  
 }
 
 #Step-1 Create Root Compartment
@@ -66,6 +66,10 @@ resource "oci_core_instance" "Demo_instance" {
   availability_domain = "ap-mumbai-1"
   shape = "VM.Standard.E2.1.Micro"
   display_name = "Demo_instance"
+  metadata = {
+    ssh_authorized_keys = file(var.path_local_public_key)
+  }
+    
     source_details {
         #Required
       source_id = var.image_ocid
