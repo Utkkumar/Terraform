@@ -59,6 +59,15 @@ resource "oci_core_subnet" "my-test_subnet" {
     vcn_id = oci_core_vcn.my-test_vcn.id
 }
 
+resource "oci_core_instance" "example_instance" {
+  compartment_id = oci_core_compartment.example_compartment.id
+  availability_domain = "IwGV:US-ASHBURN-AD-1"
+  shape = "VM.Standard2.1"
+  subnet_id = oci_core_subnet.example_subnet.id
+  display_name = "example_instance"
+  image = "Oracle-Linux-7.9-20201217-20221217-20221217-0"
+}
+
 #resource "oci_core_instance" "test_instance" {
     #Required
     #availability_domain = var.availability_domain
