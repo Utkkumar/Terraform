@@ -23,7 +23,7 @@ resource "oci_identity_compartment" "my-root_compartment" {
 #Step-2 Create Child Compartment
 resource "oci_identity_compartment" "my-test_compartment" {
     #Required
-    parent_compartment_id = oci_identity_compartment.my-root_compartment.id
+    compartment_id = oci_identity_compartment.my-root_compartment.id
     description = "This compartment is for testing"
     name = "My_compartment"
 }
