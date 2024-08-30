@@ -1,7 +1,7 @@
 variable "force_recreate" {
  description = "Set this to true to force recreation of the null resource"
  type        = bool
- default     = false
+ default     = true
 }
 resource "null_resource" "init_trigger" {
  # The triggers block ensures that the resource is recreated when force_recreate is true
