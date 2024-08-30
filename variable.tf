@@ -1,9 +1,9 @@
 variable "tenancy_ocid" {
-  default = "ocid1.tenancy.oc1..aaaaaaaanx6isnx5ktyvk46e4pnnmyuxi27bsewnaf3rrkri2pva7zjqzzta"
+  default = "ocid1.tenancy.oc1..aaaaaaaabel3fz2ynjylfcbh7gmjdup3agt3vpcwa76hwxfzzi7ikqxbcbvq"
 }
 
 variable "user_ocid" {
-  default = "ocid1.user.oc1..aaaaaaaan73tkw4m7yty4xw575wnow3u7gmu4hl2q6lix25yxddfbywm5eda"
+  default = "ocid1.user.oc1..aaaaaaaayjdgt4uffudbq2vvt7q5dtjvfcqvdwqsvh6itfxa225bh7zb5cya"
 }
 
 variable "fingerprint" {
@@ -11,7 +11,7 @@ variable "fingerprint" {
 }
 
 variable "compartment_id" {
-  default = "ocid1.compartment.oc1..aaaaaaaatmzxsdcsqh65mxf6rqk6oiey2l67x5sdmt5s25auhtog6kgcva7a"
+  default = "ocid1.compartment.oc1..aaaaaaaage4q7uwi2fr5btnztngq5qvjf4a5k6524ladsodlcwrynwldlzea"
 }
 
 variable "region" {
@@ -19,7 +19,7 @@ variable "region" {
 }
 
 variable "image_ocid" {
-  default="ocid1.image.oc1.ap-mumbai-1.aaaaaaaafdhnwn64wnw3c2v4xabp6jgwtvvvdz6ypqpeyz36kqxmr3fdcuta"
+  default="ocid1.instance.oc1.ap-mumbai-1.anrg6ljr42xg36acb4lvifvjcuggsezj3xjwysqtgvj5p5uehv5t2eocqwsa"
 }
 
 variable "path_local_public_key" {
