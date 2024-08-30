@@ -1,20 +1,24 @@
-variable "force_recreate" {
- description = "Set this to true to force recreation of the null resource"
- type        = bool
- default     = true
+module "backend_migration" {
+  source = "./backend_migration"
+
+  # Pass any necessary variables
+  backend_file_path = "desired_backend.tf"
 }
-resource "null_resource" "init_trigger" {
- # The triggers block ensures that the resource is recreated when force_recreate is true
- triggers = {
-   reconfigure = "${tostring(var.force_recreate)}"
- }
- provisioner "local-exec" {
-   command = "echo 'Initialization complete'"
- }
- lifecycle {
-   create_before_destroy = true
- }
+
+resource "null_resource" "init_migrate" {
+  provisioner "local-exec" {
+    command = <<EOT
+      chmod +x ${path.module}/check_and_migrate.sh
+      ${path.module}/check_and_migrate.sh
+    EOT
+  }
+
+  # Trigger the script when the backend file path or other conditions change
+  triggers = {
+    backend_file_hash = "${filemd5(module.backend_migration.backend_file_path)}"
+  }
 }
-output "recreate_status" {
- value = "Resource was ${var.force_recreate ? "recreated" : "not recreated"}"
+
+output "migration_status" {
+  value = "Backend migration check completed."
 }
